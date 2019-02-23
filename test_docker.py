@@ -34,3 +34,8 @@ def test_root():
     """Tests on the root of Ghost '/' """
     root_page = request('/')
     assert root_page.status_code == 200
+
+def test_admin():
+    """Tests on the Ghost admin panel"""
+    admin = request('/ghost/')
+    assert admin.status_code == 200
