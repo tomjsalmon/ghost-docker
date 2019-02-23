@@ -1,10 +1,12 @@
 language: python
+python:
+  - 3.7
 
 services:
   - docker
 
 before_install:
-  - python3 pip install -r requirements.txt
+  - pip install -r requirements.txt
   - LATEST_GHOST_VERSION=$(python3 ghost_version.py)
   - docker build -t tomjsalmon/ghost-docker --build-arg GHOST_VERSION: $LATEST_GHOST_VERSION .
   - docker run -d -p 127.0.0.1:80:2368 -e GHOST_URL=example.tomsalmon.net tomjsalmon/ghost-docker
