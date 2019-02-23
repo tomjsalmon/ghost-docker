@@ -28,7 +28,7 @@ def request(path='/',
     else:
         host_part = 'http://%s:%s' % (host, str(port))
     url = '%s%s' % (host_part, path)
-    return SESSION.get(url, timeout=2)
+    return SESSION.get(url, timeout=2, allow_redirects=False)
 
 def test_root():
     """Tests on the root of Ghost '/' """
